@@ -10,15 +10,6 @@ interface ObfuscatedEmailProps {
 }
 
 /**
- * Encodes an email for use with ObfuscatedEmail.
- * Call this at build time in your Server Component:
- *   encoded={encodeEmail("user@domain.com")}
- */
-export function encodeEmail(email: string): string {
-  return Buffer.from(email).toString('base64')
-}
-
-/**
  * Renders a mailto anchor only on the client (never in static HTML).
  * Accepts the email pre-encoded with encodeEmail() to avoid plain text
  * appearing in the JS bundle.

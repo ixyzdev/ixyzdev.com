@@ -5,7 +5,7 @@ import { ProjectsSection } from '@/features/home/components/ProjectsSection'
 import { BlogSection } from '@/features/home/components/BlogSection'
 import { ContactSection } from '@/features/home/components/ContactSection'
 import { getAllPostsMeta } from '@/features/blog/lib/posts'
-import { encodeEmail } from '@/components/ui/ObfuscatedEmail'
+import { encodeEmail } from '@/lib/encode-email'
 
 // --- Personal data ---
 
