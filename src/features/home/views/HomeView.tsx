@@ -2,7 +2,9 @@ import type { Project, SocialLink } from '@/types'
 import { HeroSection } from '@/features/home/components/HeroSection'
 import { AboutSection } from '@/features/home/components/AboutSection'
 import { ProjectsSection } from '@/features/home/components/ProjectsSection'
+import { BlogSection } from '@/features/home/components/BlogSection'
 import { ContactSection } from '@/features/home/components/ContactSection'
+import { getAllPostsMeta } from '@/features/blog/lib/posts'
 
 // --- Personal data ---
 
@@ -49,7 +51,9 @@ const projects: Project[] = [
 
 // --- End personal data ---
 
-export function HomeView() {
+export async function HomeView() {
+  const recentPosts = getAllPostsMeta().slice(0, 3)
+
   return (
     <>
       <HeroSection
@@ -80,6 +84,7 @@ export function HomeView() {
         ]}
       />
       <ProjectsSection projects={projects} title="Experiencia destacada" showAll />
+      <BlogSection posts={recentPosts} />
       <ContactSection email="ixzy.dev@gmail.com" socialLinks={socialLinks} />
     </>
   )

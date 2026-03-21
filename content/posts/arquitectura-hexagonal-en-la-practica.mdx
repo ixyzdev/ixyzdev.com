@@ -1,0 +1,52 @@
+---
+title: "Arquitectura hexagonal en la práctica"
+date: "2025-03-21"
+description: "Cómo aplicar puertos y adaptadores para desacoplar el dominio de la infraestructura, con ejemplos en NestJS."
+tags: ["arquitectura", "DDD", "NestJS"]
+---
+
+La arquitectura hexagonal (o de **puertos y adaptadores**) tiene un objetivo claro: que tu lógica de negocio no sepa nada sobre cómo se entrega ni de dónde vienen los datos.
+
+## El problema que resuelve
+
+Cuando el dominio importa directamente `pg` o `mongoose`, la lógica de negocio queda acoplada a la infraestructura. Cambiar de base de datos implica tocar código de negocio. Testear sin levantar una BD se vuelve difícil.
+
+## Puertos y adaptadores
+
+- **Puerto**: interfaz que define qué necesita el dominio (ej. `UserRepository`)
+- **Adaptador primario**: cómo llega el input al dominio (ej. un controller HTTP)
+- **Adaptador secundario**: cómo el dominio se conecta al exterior (ej. `PostgresUserRepository`)
+
+```ts
+// Puerto — vive en el dominio
+export interface UserRepository {
+  findById(id: string): Promise<User | null>
+  save(user: User): Promise<void>
+}
+
+// Adaptador secundario — vive en infraestructura
+export class PostgresUserRepository implements UserRepository {
+  async findById(id: string) { /* ... */ }
+  async save(user: User) { /* ... */ }
+}
+```
+
+## En NestJS
+
+NestJS facilita esto con inyección de dependencias. Defines el puerto como un token y el adaptador como la implementación:
+
+```ts
+@Module({
+  providers: [
+    { provide: 'UserRepository', useClass: PostgresUserRepository },
+    UserService,
+  ],
+})
+export class UserModule {}
+```
+
+`UserService` solo conoce la interfaz. En tests, inyectas un `InMemoryUserRepository` sin tocar nada más.
+
+## Conclusión
+
+La hexagonal no es complejidad gratuita. Paga cuando el proyecto crece: cambias de ORM, agregas una nueva entrada (CLI, worker), o necesitas tests rápidos sin infraestructura.
