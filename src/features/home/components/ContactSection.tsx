@@ -1,15 +1,16 @@
 import type { SocialLink } from '@/types'
 import { Section } from '@/components/layout/Section'
-import { Button } from '@/components/ui'
+import { ObfuscatedEmail } from '@/components/ui/ObfuscatedEmail'
 
 interface ContactSectionProps {
-  email: string
+  // Receive the email already encoded with encodeEmail() — never plain text
+  encodedEmail: string
   socialLinks?: SocialLink[]
   formEnabled?: boolean
 }
 
 export function ContactSection({
-  email,
+  encodedEmail,
   socialLinks = [],
   formEnabled = false,
 }: ContactSectionProps) {
@@ -26,9 +27,7 @@ export function ContactSection({
           Have a project in mind or just want to say hi? My inbox is open.
         </p>
         <div className="flex flex-col items-center gap-4">
-          <Button asChild size="lg">
-            <a href={`mailto:${email}`}>{email}</a>
-          </Button>
+          <ObfuscatedEmail encoded={encodedEmail} />
           {socialLinks.length > 0 && (
             <ul className="flex items-center gap-4">
               {socialLinks.map((link) => (

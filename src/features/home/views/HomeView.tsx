@@ -5,6 +5,7 @@ import { ProjectsSection } from '@/features/home/components/ProjectsSection'
 import { BlogSection } from '@/features/home/components/BlogSection'
 import { ContactSection } from '@/features/home/components/ContactSection'
 import { getAllPostsMeta } from '@/features/blog/lib/posts'
+import { encodeEmail } from '@/components/ui/ObfuscatedEmail'
 
 // --- Personal data ---
 
@@ -85,7 +86,10 @@ export async function HomeView() {
       />
       <ProjectsSection projects={projects} title="Experiencia destacada" showAll />
       <BlogSection posts={recentPosts} />
-      <ContactSection email="ixzy.dev@gmail.com" socialLinks={socialLinks} />
+      <ContactSection
+        encodedEmail={encodeEmail('ixzy.dev@gmail.com')}
+        socialLinks={socialLinks}
+      />
     </>
   )
 }
