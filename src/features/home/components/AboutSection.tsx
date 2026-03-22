@@ -9,15 +9,15 @@ interface AboutSectionProps {
 export function AboutSection({ bio, avatarUrl }: AboutSectionProps) {
   return (
     <Section id="about">
-      <div className="mx-auto max-w-2xl space-y-8 text-center">
-        <AnimateIn>
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/30">
-            — Acerca
-          </p>
-        </AnimateIn>
+      <AnimateIn>
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/30">
+          — Acerca
+        </p>
+      </AnimateIn>
+      <div className="mx-auto mt-8 max-w-2xl space-y-8">
         <AnimateIn delay={0.1}>
-          <p className="font-[family-name:var(--font-syne)] text-2xl font-medium leading-relaxed text-foreground/85 md:text-3xl">
-            {bio}
+          <p className="text-center font-[family-name:var(--font-syne)] text-2xl font-medium italic leading-relaxed text-foreground/85 md:text-3xl">
+            "{bio}"
           </p>
         </AnimateIn>
         {avatarUrl && (
