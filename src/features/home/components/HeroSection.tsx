@@ -36,7 +36,7 @@ export function HeroSection({
         </AnimateIn>
 
         <AnimateIn delay={0.1} variant="slide-up">
-          <h1 className="font-[family-name:var(--font-syne)] text-[clamp(4rem,8vw,6.5rem)] font-extrabold leading-[0.88] tracking-tighter">
+          <h1 className="font-[family-name:var(--font-syne)] text-[clamp(4rem,8vw,6.5rem)] font-bold leading-[0.95] tracking-normal">
             {firstName}
             <br />
             {lastName}
