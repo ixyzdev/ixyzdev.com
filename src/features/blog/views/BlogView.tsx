@@ -11,13 +11,15 @@ export function BlogView({ posts }: BlogViewProps) {
     <Section>
       <div className="space-y-10">
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
-          <p className="text-sm text-muted">
+          <h1 className="font-[family-name:var(--font-syne)] text-3xl font-bold tracking-tight">
+            Blog
+          </h1>
+          <p className="text-sm text-foreground/40">
             Notas sobre arquitectura, desarrollo y lo que voy aprendiendo.
           </p>
         </div>
         {posts.length === 0 ? (
-          <p className="text-sm text-muted">No hay posts todavía.</p>
+          <p className="text-sm text-foreground/30">No hay publicaciones todavía.</p>
         ) : (
           <div>
             {posts.map((post) => (

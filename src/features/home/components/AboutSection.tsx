@@ -15,7 +15,7 @@ export function AboutSection({ bio, avatarUrl, skills = [] }: AboutSectionProps)
         <div className="space-y-8">
           <AnimateIn>
             <p className="font-mono text-xs text-foreground/30 tracking-widest uppercase">
-              — About
+              — Acerca
             </p>
           </AnimateIn>
           <AnimateIn delay={0.1}>

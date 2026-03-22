@@ -11,10 +11,10 @@ interface NavbarProps {
 }
 
 const defaultItems: NavItem[] = [
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Acerca', href: '#about' },
+  { label: 'Proyectos', href: '#projects' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contacto', href: '#contact' },
 ]
 
 export function Navbar({ items = defaultItems }: NavbarProps) {

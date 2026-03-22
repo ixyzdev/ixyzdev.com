@@ -12,27 +12,24 @@ export function PostView({ post }: PostViewProps) {
   return (
     <Section className="py-16">
       <div className="space-y-10">
-        <div>
-          <Link
-            href="/blog"
-            className="font-mono text-xs text-muted hover:text-foreground transition-colors"
-          >
-            ← Blog
-          </Link>
-        </div>
+        <Link
+          href="/blog"
+          className="font-mono text-xs text-foreground/30 hover:text-foreground transition-colors"
+        >
+          ← Blog
+        </Link>
         <div className="space-y-4">
-          <time
-            dateTime={post.date}
-            className="font-mono text-xs text-muted"
-          >
+          <time dateTime={post.date} className="font-mono text-xs text-foreground/30">
             {new Date(post.date).toLocaleDateString('es-CL', {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
             })}
           </time>
-          <h1 className="text-3xl font-bold tracking-tight">{post.title}</h1>
-          <p className="text-muted leading-relaxed">{post.description}</p>
+          <h1 className="font-[family-name:var(--font-syne)] text-3xl font-bold tracking-tight">
+            {post.title}
+          </h1>
+          <p className="text-foreground/50 leading-relaxed">{post.description}</p>
           {post.tags && post.tags.length > 0 && (
             <ul className="flex flex-wrap gap-1.5">
               {post.tags.map((tag) => (
@@ -43,7 +40,7 @@ export function PostView({ post }: PostViewProps) {
             </ul>
           )}
         </div>
-        <hr className="border-border" />
+        <hr className="border-foreground/8" />
         <PostBody source={post.content} />
       </div>
     </Section>

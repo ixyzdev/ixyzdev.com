@@ -19,12 +19,12 @@ export function ContactSection({
       <div className="space-y-10 text-center max-w-lg mx-auto">
         <AnimateIn>
           <p className="font-mono text-xs text-foreground/30 tracking-widest uppercase">
-            — Contact
+            — Contacto
           </p>
         </AnimateIn>
         <AnimateIn delay={0.1}>
           <h2 className="font-[family-name:var(--font-syne)] text-4xl font-bold tracking-tight md:text-5xl">
-            Let&apos;s build<br />something great
+            Construyamos<br />algo grande
           </h2>
         </AnimateIn>
         <AnimateIn delay={0.2}>

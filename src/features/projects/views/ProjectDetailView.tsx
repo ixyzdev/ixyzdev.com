@@ -12,20 +12,20 @@ export function ProjectDetailView({ project }: ProjectDetailViewProps) {
   return (
     <Section as="article" className="py-16">
       <div className="space-y-10">
-        <div>
-          <Link
-            href="/#projects"
-            className="font-mono text-xs text-muted hover:text-foreground transition-colors"
-          >
-            ← Back
-          </Link>
-        </div>
+        <Link
+          href="/#projects"
+          className="font-mono text-xs text-foreground/30 hover:text-foreground transition-colors"
+        >
+          ← Volver
+        </Link>
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <h1 className="text-3xl font-bold tracking-tight">{project.title}</h1>
-            <span className="font-mono text-sm text-muted">{project.year}</span>
+            <h1 className="font-[family-name:var(--font-syne)] text-3xl font-bold tracking-tight">
+              {project.title}
+            </h1>
+            <span className="font-mono text-sm text-foreground/25">{project.year}</span>
           </div>
-          <p className="max-w-prose text-base text-muted leading-relaxed">
+          <p className="max-w-prose text-base text-foreground/50 leading-relaxed">
             {project.longDescription ?? project.description}
           </p>
         </div>
@@ -34,14 +34,14 @@ export function ProjectDetailView({ project }: ProjectDetailViewProps) {
           {project.repoUrl && (
             <Button asChild variant="secondary">
               <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                View repo ↗
+                Repositorio ↗
               </a>
             </Button>
           )}
           {project.liveUrl && (
             <Button asChild>
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                Live demo ↗
+                Demo en vivo ↗
               </a>
             </Button>
           )}

@@ -62,6 +62,7 @@ export async function HomeView() {
         headline="Ingeniero Civil Informático"
         subheadline="Diseño e integración de soluciones modernas con enfoque en arquitectura de software, CI/CD y despliegue de servicios sobre Linux con Docker y Kubernetes."
         socialLinks={socialLinks}
+        // avatarUrl="/images/foto.jpg"   ← descomenta y agrega tu foto en /public/images/
       />
       <AboutSection
         bio="Egresado de Ingeniería Civil Informática en la Universidad de Valparaíso. Me especializo en arquitectura de software (DDD, hexagonal), automatización de flujos CI/CD y tecnologías web como Next.js, NestJS y GraphQL. He liderado proyectos educativos y clínicos en FabLab UV, combinando visión técnica, estrategia y ejecución integral. Inglés B2 · Español nativo."
