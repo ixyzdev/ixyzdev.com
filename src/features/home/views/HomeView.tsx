@@ -1,13 +1,14 @@
 import type { Project, SocialLink } from '@/types'
-import { Monitor, Server, Database, Layers, Workflow, GitBranch } from 'lucide-react'
+import { Globe, Leaf, Cpu, Server, GitMerge, Workflow } from 'lucide-react'
 import { HeroSection } from '@/features/home/components/HeroSection'
 import { AboutSection } from '@/features/home/components/AboutSection'
+import { StackSection } from '@/features/home/components/StackSection'
 import { ProjectsSection } from '@/features/home/components/ProjectsSection'
 import { BlogSection } from '@/features/home/components/BlogSection'
 import { ContactSection } from '@/features/home/components/ContactSection'
 import { getAllPostsMeta } from '@/features/blog/lib/posts'
 import { encodeEmail } from '@/lib/encode-email'
-import type { StackCategory } from '@/features/home/components/StackCard'
+import type { TechStack } from '@/features/home/components/StackCard'
 
 // --- Personal data ---
 
@@ -52,36 +53,71 @@ const projects: Project[] = [
   },
 ]
 
-const stackCategories: StackCategory[] = [
+const techStacks: TechStack[] = [
   {
-    name: 'Frontend',
-    Icon: Monitor,
-    technologies: ['Next.js', 'Astro', 'SvelteKit', 'React', 'TypeScript', 'Tailwind CSS'],
+    name: 'Next.js + NestJS + MongoDB',
+    description: 'Stack JavaScript full stack con SSR en el cliente y API REST/GraphQL en el servidor.',
+    Icon: Globe,
+    technologies: [
+      { name: 'Next.js', role: 'Frontend + SSR' },
+      { name: 'NestJS', role: 'Backend / API' },
+      { name: 'Mongoose', role: 'ODM — conector' },
+      { name: 'MongoDB', role: 'Base de datos' },
+    ],
   },
   {
-    name: 'Backend',
+    name: 'Next.js + Django + PostgreSQL',
+    description: 'Stack híbrido con frontend moderno React y backend Python orientado a datos.',
+    Icon: Leaf,
+    technologies: [
+      { name: 'Next.js', role: 'Frontend + SSR' },
+      { name: 'Django', role: 'Backend / API' },
+      { name: 'psycopg2', role: 'Adaptador — conector' },
+      { name: 'PostgreSQL', role: 'Base de datos' },
+    ],
+  },
+  {
+    name: 'GraphQL API',
+    description: 'API type-safe con esquema unificado y resolvers tipados end-to-end.',
+    Icon: Cpu,
+    technologies: [
+      { name: 'NestJS', role: 'Backend / API' },
+      { name: 'GraphQL', role: 'Protocolo de consulta' },
+      { name: 'Prisma', role: 'ORM — conector' },
+      { name: 'PostgreSQL', role: 'Base de datos' },
+    ],
+  },
+  {
+    name: 'Despliegue de servicios',
+    description: 'Contenerización y orquestación de servicios sobre infraestructura Linux.',
     Icon: Server,
-    technologies: ['NestJS', 'Node.js', 'Spring Boot', 'Django', 'GraphQL'],
+    technologies: [
+      { name: 'Docker', role: 'Contenerización' },
+      { name: 'Kubernetes', role: 'Orquestación' },
+      { name: 'Linux', role: 'Sistema operativo base' },
+      { name: 'Nginx', role: 'Reverse proxy' },
+    ],
   },
   {
-    name: 'Base de datos',
-    Icon: Database,
-    technologies: ['PostgreSQL', 'MongoDB', 'Prisma'],
+    name: 'CI/CD',
+    description: 'Automatización de pruebas, builds y despliegues con flujos reproducibles.',
+    Icon: GitMerge,
+    technologies: [
+      { name: 'GitHub Actions', role: 'Pipeline de automatización' },
+      { name: 'GitOps', role: 'Estrategia de despliegue' },
+      { name: 'Docker Hub', role: 'Registro de imágenes' },
+    ],
   },
   {
-    name: 'DevOps',
-    Icon: Layers,
-    technologies: ['Docker', 'Kubernetes', 'GitHub Actions', 'Linux'],
-  },
-  {
-    name: 'Arquitectura',
+    name: 'Arquitectura Limpia',
+    description: 'Diseño orientado al dominio con separación estricta de capas.',
     Icon: Workflow,
-    technologies: ['DDD', 'Hexagonal', 'CQRS', 'gRPC', 'Kafka'],
-  },
-  {
-    name: 'Control de versiones',
-    Icon: GitBranch,
-    technologies: ['Git', 'GitHub', 'GitOps', 'CI/CD'],
+    technologies: [
+      { name: 'DDD', role: 'Modelado del dominio' },
+      { name: 'Arquitectura Hexagonal', role: 'Separación de capas' },
+      { name: 'CQRS', role: 'Segregación de comandos' },
+      { name: 'gRPC / Kafka', role: 'Comunicación entre servicios' },
+    ],
   },
 ]
 
@@ -101,8 +137,8 @@ export async function HomeView() {
       />
       <AboutSection
         bio="Egresado de Ingeniería Civil Informática en la Universidad de Valparaíso. Me especializo en arquitectura de software (DDD, hexagonal), automatización de flujos CI/CD y tecnologías web como Next.js, NestJS y GraphQL. He liderado proyectos educativos y clínicos en FabLab UV, combinando visión técnica, estrategia y ejecución integral. Inglés B2 · Español nativo."
-        stackCategories={stackCategories}
       />
+      <StackSection stacks={techStacks} />
       <ProjectsSection projects={projects} title="Experiencia destacada" showAll />
       <BlogSection posts={recentPosts} />
       <ContactSection

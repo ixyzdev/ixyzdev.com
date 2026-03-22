@@ -17,7 +17,7 @@ export function ProjectsSection({
   const visible = showAll ? projects : projects.filter((p) => p.featured)
 
   return (
-    <Section id="projects">
+    <Section id="experience">
       <AnimateIn>
         <p className="font-mono text-xs text-foreground/30 tracking-widest uppercase">
           — {title}
