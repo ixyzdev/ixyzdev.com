@@ -10,10 +10,7 @@ interface BlogSectionProps {
 
 export function BlogSection({ posts }: BlogSectionProps) {
   return (
-    <Section
-      id="blog"
-      outerClassName="w-full bg-slate/10 border-y border-border/50"
-    >
+    <Section id="blog">
       <div className="space-y-12">
         <AnimateIn>
           <div className="flex items-baseline justify-between">
@@ -22,7 +19,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
             </p>
             <Link
               href="/blog"
-              className="font-mono text-xs text-steel hover:text-turquoise transition-colors"
+              className="font-mono text-xs text-white/50 hover:text-turquoise transition-colors"
             >
               Ver todos →
             </Link>
@@ -30,7 +27,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
         </AnimateIn>
 
         {posts.length === 0 ? (
-          <p className="text-sm text-steel">No hay posts todavía.</p>
+          <p className="text-sm text-white/50">No hay posts todavía.</p>
         ) : (
           <div>
             {posts.map((post, i) => (

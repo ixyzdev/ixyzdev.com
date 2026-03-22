@@ -33,7 +33,7 @@ export function Navbar({ items = defaultItems }: NavbarProps) {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-steel hover:text-foreground transition-colors"
+                  className="text-sm text-white/60 hover:text-white transition-colors"
                 >
                   {item.label}
                 </Link>

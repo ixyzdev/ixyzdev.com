@@ -16,7 +16,7 @@ export function PostCard({ post }: PostCardProps) {
         >
           {post.title}
         </Link>
-        <p className="text-sm text-steel leading-relaxed">{post.description}</p>
+        <p className="text-sm text-white/60 leading-relaxed">{post.description}</p>
         {post.tags && post.tags.length > 0 && (
           <ul className="flex flex-wrap gap-1.5 pt-1">
             {post.tags.map((tag) => (
@@ -29,7 +29,7 @@ export function PostCard({ post }: PostCardProps) {
       </div>
       <time
         dateTime={post.date}
-        className="shrink-0 font-mono text-xs text-steel/50 pt-1"
+        className="shrink-0 font-mono text-xs text-white/60/50 pt-1"
       >
         {new Date(post.date).toLocaleDateString('es-CL', {
           year: 'numeric',

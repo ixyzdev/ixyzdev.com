@@ -58,14 +58,14 @@ export function HeroSection({
         </AnimateIn>
 
         <AnimateIn delay={0.25} variant="slide-up">
-          <p className="mt-8 font-[family-name:var(--font-syne)] text-2xl font-medium text-steel md:text-3xl">
+          <p className="mt-8 font-[family-name:var(--font-syne)] text-2xl font-medium text-white/80 md:text-3xl">
             {headline}
           </p>
         </AnimateIn>
 
         {subheadline && (
           <AnimateIn delay={0.35} variant="slide-up">
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-steel/70">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/50">
               {subheadline}
             </p>
           </AnimateIn>
@@ -87,7 +87,7 @@ export function HeroSection({
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-xs text-steel hover:text-turquoise transition-colors"
+                      className="font-mono text-xs text-white/50 hover:text-turquoise transition-colors"
                     >
                       {link.label} ↗
                     </a>

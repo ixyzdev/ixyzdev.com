@@ -36,7 +36,7 @@ export function ContactSection({
             </h2>
           </AnimateIn>
           <AnimateIn delay={0.2}>
-            <p className="text-steel leading-relaxed">
+            <p className="text-white/60 leading-relaxed">
               ¿Tienes un proyecto en mente? Escríbeme, siempre estoy abierto a nuevas ideas.
             </p>
           </AnimateIn>
@@ -51,7 +51,7 @@ export function ContactSection({
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-xs text-steel hover:text-turquoise transition-colors"
+                        className="font-mono text-xs text-white/60 hover:text-turquoise transition-colors"
                       >
                         {link.label} ↗
                       </a>

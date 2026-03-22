@@ -10,10 +10,7 @@ interface AboutSectionProps {
 
 export function AboutSection({ bio, avatarUrl, skills = [] }: AboutSectionProps) {
   return (
-    <Section
-      id="about"
-      outerClassName="w-full bg-slate/20 border-y border-border/50"
-    >
+    <Section id="about">
       <div className="grid gap-16 md:grid-cols-[1fr_280px]">
         <div className="space-y-8">
           <AnimateIn>
@@ -22,14 +19,14 @@ export function AboutSection({ bio, avatarUrl, skills = [] }: AboutSectionProps)
             </p>
           </AnimateIn>
           <AnimateIn delay={0.1}>
-            <p className="font-[family-name:var(--font-syne)] text-2xl font-medium leading-relaxed text-foreground md:text-3xl">
+            <p className="font-[family-name:var(--font-syne)] text-2xl font-medium leading-relaxed text-white md:text-3xl">
               {bio}
             </p>
           </AnimateIn>
           {skills.length > 0 && (
             <AnimateIn delay={0.2}>
               <div className="space-y-3">
-                <p className="font-mono text-xs text-steel/60 uppercase tracking-widest">
+                <p className="font-mono text-xs text-white/40 uppercase tracking-widest">
                   Stack
                 </p>
                 <ul className="flex flex-wrap gap-2">
