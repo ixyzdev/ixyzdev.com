@@ -11,9 +11,9 @@ const defaultLinks: SocialLink[] = [
 
 export function Footer({ socialLinks = defaultLinks }: FooterProps) {
   return (
-    <footer className="border-t border-border/50">
+    <footer className="border-t border-foreground/5">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-8">
-        <p className="font-mono text-xs text-white/50/60">
+        <p className="font-mono text-xs text-foreground/25">
           © {new Date().getFullYear()} Kevin Díaz
         </p>
         <ul className="flex items-center gap-5">
@@ -23,7 +23,7 @@ export function Footer({ socialLinks = defaultLinks }: FooterProps) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs text-white/50 hover:text-turquoise transition-colors"
+                className="font-mono text-xs text-foreground/30 hover:text-foreground transition-colors"
               >
                 {link.label} ↗
               </a>

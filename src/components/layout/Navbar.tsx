@@ -19,11 +19,11 @@ const defaultItems: NavItem[] = [
 
 export function Navbar({ items = defaultItems }: NavbarProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/60 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/5 bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="font-[family-name:var(--font-syne)] text-base font-bold tracking-tight text-turquoise hover:opacity-80 transition-opacity"
+          className="font-[family-name:var(--font-syne)] text-base font-bold tracking-tight text-foreground hover:opacity-60 transition-opacity"
         >
           kd.
         </Link>
@@ -33,7 +33,7 @@ export function Navbar({ items = defaultItems }: NavbarProps) {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-white/60 hover:text-white transition-colors"
+                  className="text-sm text-foreground/40 hover:text-foreground transition-colors"
                 >
                   {item.label}
                 </Link>

@@ -13,9 +13,9 @@ export interface ButtonProps
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary:   'bg-turquoise text-background font-semibold hover:opacity-85',
-  secondary: 'border border-turquoise/40 text-turquoise hover:bg-turquoise/10',
-  ghost:     'text-steel hover:text-foreground hover:bg-foreground/5',
+  primary:   'bg-foreground text-background font-semibold hover:opacity-80',
+  secondary: 'border border-foreground/20 text-foreground hover:bg-foreground/5',
+  ghost:     'text-foreground/40 hover:text-foreground hover:bg-foreground/5',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {

@@ -10,9 +10,9 @@ export interface BadgeProps {
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  default: 'bg-turquoise/10 text-turquoise border border-turquoise/20',
-  outline: 'border border-border text-steel',
-  muted:   'bg-foreground/5 text-steel',
+  default: 'bg-foreground/10 text-foreground',
+  outline: 'border border-foreground/15 text-foreground/50',
+  muted:   'bg-foreground/5 text-foreground/40',
 }
 
 export function Badge({ children, variant = 'default', className }: BadgeProps) {

@@ -19,11 +19,10 @@ export function ProjectsSection({
   return (
     <Section id="projects">
       <AnimateIn>
-        <p className="font-mono text-xs tracking-widest uppercase text-turquoise">
+        <p className="font-mono text-xs text-foreground/30 tracking-widest uppercase">
           — {title}
         </p>
       </AnimateIn>
-
       <ul className="mt-12 space-y-4">
         {visible.map((project, i) => (
           <AnimateIn key={project.slug} delay={i * 0.1} variant="slide-up">

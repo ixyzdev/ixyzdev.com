@@ -8,15 +8,15 @@ interface PostCardProps {
 
 export function PostCard({ post }: PostCardProps) {
   return (
-    <article className="group flex items-start justify-between gap-6 border-b border-border/40 py-7 last:border-0">
+    <article className="group flex items-start justify-between gap-6 border-b border-foreground/8 py-7 last:border-0">
       <div className="space-y-2 min-w-0">
         <Link
           href={`/blog/${post.slug}`}
-          className="font-[family-name:var(--font-syne)] text-base font-semibold text-foreground transition-colors group-hover:text-turquoise"
+          className="font-[family-name:var(--font-syne)] text-base font-semibold text-foreground transition-opacity group-hover:opacity-60"
         >
           {post.title}
         </Link>
-        <p className="text-sm text-white/60 leading-relaxed">{post.description}</p>
+        <p className="text-sm text-foreground/40 leading-relaxed">{post.description}</p>
         {post.tags && post.tags.length > 0 && (
           <ul className="flex flex-wrap gap-1.5 pt-1">
             {post.tags.map((tag) => (
@@ -29,7 +29,7 @@ export function PostCard({ post }: PostCardProps) {
       </div>
       <time
         dateTime={post.date}
-        className="shrink-0 font-mono text-xs text-white/60/50 pt-1"
+        className="shrink-0 font-mono text-xs text-foreground/25 pt-1"
       >
         {new Date(post.date).toLocaleDateString('es-CL', {
           year: 'numeric',

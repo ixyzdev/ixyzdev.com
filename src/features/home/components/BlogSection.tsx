@@ -14,20 +14,19 @@ export function BlogSection({ posts }: BlogSectionProps) {
       <div className="space-y-12">
         <AnimateIn>
           <div className="flex items-baseline justify-between">
-            <p className="font-mono text-xs tracking-widest uppercase text-turquoise">
+            <p className="font-mono text-xs text-foreground/30 tracking-widest uppercase">
               — Blog
             </p>
             <Link
               href="/blog"
-              className="font-mono text-xs text-white/50 hover:text-turquoise transition-colors"
+              className="font-mono text-xs text-foreground/30 hover:text-foreground transition-colors"
             >
               Ver todos →
             </Link>
           </div>
         </AnimateIn>
-
         {posts.length === 0 ? (
-          <p className="text-sm text-white/50">No hay posts todavía.</p>
+          <p className="text-sm text-foreground/30">No hay posts todavía.</p>
         ) : (
           <div>
             {posts.map((post, i) => (
