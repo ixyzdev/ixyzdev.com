@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { SquareCode } from 'lucide-react'
+import { SquareCode, ChevronDown } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 interface NavChild {
@@ -85,28 +85,30 @@ export function Navbar({ items = defaultItems }: NavbarProps) {
                 <Link
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-sm text-foreground/40 hover:text-foreground transition-colors"
+                  className="flex items-center gap-1 text-sm text-foreground/40 hover:text-foreground transition-colors"
                 >
                   {item.label}
+                  {item.children && (
+                    <ChevronDown
+                      size={11}
+                      strokeWidth={2}
+                      className={`transition-transform duration-200 ${open === item.href ? 'rotate-180' : ''}`}
+                    />
+                  )}
                 </Link>
 
                 {/* Dropdown */}
                 {item.children && open === item.href && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3">
-                    <div className="min-w-[160px] rounded-xl border border-foreground/8 bg-background/95 backdrop-blur-md py-1.5 shadow-lg">
-                      {/* Separador visual: el item principal */}
-                      <div className="px-4 py-2 border-b border-foreground/6">
-                        <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-foreground/25">
-                          {item.label}
-                        </span>
-                      </div>
+                  <div className="absolute top-full left-0 pt-3">
+                    <div className="rounded-lg border border-foreground/8 bg-background/98 backdrop-blur-md overflow-hidden">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
                           onClick={() => setOpen(null)}
-                          className="block px-4 py-2.5 text-sm text-foreground/50 hover:text-foreground hover:bg-foreground/[0.04] transition-colors"
+                          className="flex items-center gap-2 whitespace-nowrap px-4 py-2.5 font-mono text-[11px] text-foreground/40 hover:text-foreground transition-colors"
                         >
+                          <span className="text-foreground/20">↗</span>
                           {child.label}
                         </Link>
                       ))}
