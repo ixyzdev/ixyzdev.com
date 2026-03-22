@@ -135,7 +135,7 @@ export async function HomeView() {
         // avatarUrl="/images/foto.jpg"   ← descomenta y agrega tu foto en /public/images/
       />
       <AboutSection
-        bio="Egresado de Ingeniería Civil Informática en la Universidad de Valparaíso. Me especializo en arquitectura de software (DDD, hexagonal), automatización de flujos CI/CD y tecnologías web como Next.js, NestJS y GraphQL. He liderado proyectos educativos y clínicos en FabLab UV, combinando visión técnica, estrategia y ejecución integral. Inglés B2 · Español nativo."
+        bio="Me dedico al desarrollo y despliegue de aplicaciones, cuidando el ciclo completo del producto — desde la arquitectura hasta la puesta en producción. He trabajado en proyectos web y móviles dentro y fuera del FabLab UV de la Universidad de Valparaíso, donde también me desempeñé como ayudante y docente. Me mueve construir software que funciona de verdad."
       />
       <StackSection stacks={techStacks} />
       <ProjectsSection projects={projects} title="Experiencia destacada" showAll />

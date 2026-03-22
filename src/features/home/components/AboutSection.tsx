@@ -9,25 +9,23 @@ interface AboutSectionProps {
 export function AboutSection({ bio, avatarUrl }: AboutSectionProps) {
   return (
     <Section id="about">
-      <div className="grid gap-12 md:grid-cols-[1fr_220px]">
-        <div className="space-y-6">
-          <AnimateIn>
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/30">
-              — Acerca
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.1}>
-            <p className="font-[family-name:var(--font-syne)] text-2xl font-medium leading-relaxed md:text-3xl">
-              {bio}
-            </p>
-          </AnimateIn>
-        </div>
+      <div className="mx-auto max-w-2xl space-y-8 text-center">
+        <AnimateIn>
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/30">
+            — Acerca
+          </p>
+        </AnimateIn>
+        <AnimateIn delay={0.1}>
+          <p className="font-[family-name:var(--font-syne)] text-2xl font-medium leading-relaxed text-foreground/85 md:text-3xl">
+            {bio}
+          </p>
+        </AnimateIn>
         {avatarUrl && (
-          <AnimateIn delay={0.15} variant="fade" className="flex items-start justify-center md:justify-end">
+          <AnimateIn delay={0.15} variant="fade">
             <img
               src={avatarUrl}
               alt="Kevin Díaz"
-              className="size-44 rounded-2xl object-cover ring-1 ring-foreground/10"
+              className="mx-auto size-28 rounded-2xl object-cover ring-1 ring-foreground/10"
             />
           </AnimateIn>
         )}
