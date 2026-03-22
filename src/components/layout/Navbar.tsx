@@ -99,7 +99,7 @@ export function Navbar({ items = defaultItems }: NavbarProps) {
 
                 {/* Dropdown */}
                 {item.children && open === item.href && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
+                  <div className="absolute top-full left-0 pt-3 z-50">
                     <div className="overflow-hidden rounded-lg border border-foreground/10 bg-background shadow-md shadow-black/20">
                       {item.children.map((child) => (
                         <Link
