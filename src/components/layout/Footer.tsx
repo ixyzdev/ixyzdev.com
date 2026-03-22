@@ -5,27 +5,27 @@ interface FooterProps {
 }
 
 const defaultLinks: SocialLink[] = [
-  { label: 'GitHub', url: 'https://github.com', icon: 'github' },
-  { label: 'LinkedIn', url: 'https://linkedin.com', icon: 'linkedin' },
+  { label: 'GitHub', url: 'https://github.com/IxyzDev', icon: 'github' },
+  { label: 'LinkedIn', url: 'https://linkedin.com/in/ixyzdev', icon: 'linkedin' },
 ]
 
 export function Footer({ socialLinks = defaultLinks }: FooterProps) {
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border/50">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-8">
-        <p className="text-xs text-muted">
-          © {new Date().getFullYear()} ixyz.dev
+        <p className="font-mono text-xs text-steel/60">
+          © {new Date().getFullYear()} Kevin Díaz
         </p>
-        <ul className="flex items-center gap-4">
+        <ul className="flex items-center gap-5">
           {socialLinks.map((link) => (
             <li key={link.icon}>
               <a
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-muted hover:text-foreground transition-colors"
+                className="font-mono text-xs text-steel hover:text-turquoise transition-colors"
               >
-                {link.label}
+                {link.label} ↗
               </a>
             </li>
           ))}

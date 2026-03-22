@@ -8,41 +8,35 @@ interface PostCardProps {
 
 export function PostCard({ post }: PostCardProps) {
   return (
-    <article className="group border-b border-border py-6 last:border-0">
-      <div className="flex items-start justify-between gap-4">
-        <div className="space-y-1">
-          <Link
-            href={`/blog/${post.slug}`}
-            className="text-base font-semibold text-foreground transition-colors group-hover:text-accent"
-          >
-            {post.title}
-          </Link>
-          <p className="text-sm text-muted leading-relaxed">{post.description}</p>
-        </div>
-        <time
-          dateTime={post.date}
-          className="shrink-0 font-mono text-xs text-muted pt-0.5"
+    <article className="group flex items-start justify-between gap-6 border-b border-border/40 py-7 last:border-0">
+      <div className="space-y-2 min-w-0">
+        <Link
+          href={`/blog/${post.slug}`}
+          className="font-[family-name:var(--font-syne)] text-base font-semibold text-foreground transition-colors group-hover:text-turquoise"
         >
-          {formatDate(post.date)}
-        </time>
+          {post.title}
+        </Link>
+        <p className="text-sm text-steel leading-relaxed">{post.description}</p>
+        {post.tags && post.tags.length > 0 && (
+          <ul className="flex flex-wrap gap-1.5 pt-1">
+            {post.tags.map((tag) => (
+              <li key={tag}>
+                <Badge variant="muted">{tag}</Badge>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      {post.tags && post.tags.length > 0 && (
-        <ul className="mt-3 flex flex-wrap gap-1.5">
-          {post.tags.map((tag) => (
-            <li key={tag}>
-              <Badge variant="muted">{tag}</Badge>
-            </li>
-          ))}
-        </ul>
-      )}
+      <time
+        dateTime={post.date}
+        className="shrink-0 font-mono text-xs text-steel/50 pt-1"
+      >
+        {new Date(post.date).toLocaleDateString('es-CL', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+        })}
+      </time>
     </article>
   )
-}
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('es-CL', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  })
 }

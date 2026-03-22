@@ -10,16 +10,16 @@ export interface BadgeProps {
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  default: 'bg-foreground/10 text-foreground',
-  outline: 'border border-border text-muted',
-  muted: 'bg-foreground/5 text-muted',
+  default: 'bg-turquoise/10 text-turquoise border border-turquoise/20',
+  outline: 'border border-border text-steel',
+  muted:   'bg-foreground/5 text-steel',
 }
 
 export function Badge({ children, variant = 'default', className }: BadgeProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded px-2 py-0.5 text-xs font-medium font-mono',
+        'inline-flex items-center rounded-full px-3 py-0.5 text-xs font-mono',
         variantClasses[variant],
         className
       )}

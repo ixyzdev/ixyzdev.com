@@ -1,6 +1,7 @@
 import type { Project } from '@/types'
 import { Section } from '@/components/layout/Section'
 import { ProjectCard } from '@/features/projects/components/ProjectCard'
+import { AnimateIn } from '@/components/ui/AnimateIn'
 
 interface ProjectsSectionProps {
   projects: Project[]
@@ -16,19 +17,22 @@ export function ProjectsSection({
   const visible = showAll ? projects : projects.filter((p) => p.featured)
 
   return (
-    <Section id="projects" className="border-t border-border">
-      <div className="space-y-10">
-        <h2 className="font-mono text-xs font-semibold uppercase tracking-widest text-muted">
-          {title}
-        </h2>
-        <ul className="grid gap-4 sm:grid-cols-2">
-          {visible.map((project) => (
-            <li key={project.slug}>
+    <Section id="projects">
+      <AnimateIn>
+        <p className="font-mono text-xs tracking-widest uppercase text-turquoise">
+          — {title}
+        </p>
+      </AnimateIn>
+
+      <ul className="mt-12 space-y-4">
+        {visible.map((project, i) => (
+          <AnimateIn key={project.slug} delay={i * 0.1} variant="slide-up">
+            <li>
               <ProjectCard project={project} />
             </li>
-          ))}
-        </ul>
-      </div>
+          </AnimateIn>
+        ))}
+      </ul>
     </Section>
   )
 }
