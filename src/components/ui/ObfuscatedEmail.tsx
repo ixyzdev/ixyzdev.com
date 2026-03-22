@@ -36,9 +36,15 @@ export function ObfuscatedEmail({ encoded, className }: ObfuscatedEmailProps) {
     )
   }
 
+  const subject = encodeURIComponent('Hola Kevin — me gustaría contactarte')
+  const body = encodeURIComponent('Hola Kevin,\n\nTe escribo porque...\n\nSaludos,\n')
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(email)}&su=${subject}&body=${body}`
+
   return (
     <a
-      href={`mailto:${email}`}
+      href={gmailUrl}
+      target="_blank"
+      rel="noopener noreferrer"
       className={cn(
         'inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-all',
         'bg-foreground text-background hover:opacity-80',
