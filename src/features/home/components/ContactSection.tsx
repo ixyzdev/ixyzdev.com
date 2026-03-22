@@ -16,12 +16,12 @@ export function ContactSection({
 }: ContactSectionProps) {
   return (
     <Section id="contact">
-      <div className="space-y-10 text-center max-w-lg mx-auto">
-        <AnimateIn>
-          <p className="font-mono text-xs text-foreground/30 tracking-widest uppercase">
-            — Contacto
-          </p>
-        </AnimateIn>
+      <AnimateIn>
+        <p className="font-mono text-xs text-foreground/30 tracking-widest uppercase">
+          — Contacto
+        </p>
+      </AnimateIn>
+      <div className="mt-10 space-y-10 text-center max-w-lg mx-auto">
         <AnimateIn delay={0.1}>
           <h2 className="font-[family-name:var(--font-syne)] text-4xl font-bold tracking-tight md:text-5xl">
             Construyamos<br />algo grande
