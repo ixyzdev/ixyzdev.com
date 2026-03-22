@@ -11,7 +11,7 @@ export function StackSection({ stacks }: StackSectionProps) {
   return (
     <Section id="stack">
       <AnimateIn>
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/25">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-foreground/25">
           — Stack
         </p>
       </AnimateIn>

@@ -12,11 +12,11 @@ export function PostCard({ post }: PostCardProps) {
       <div className="space-y-2 min-w-0">
         <Link
           href={`/blog/${post.slug}`}
-          className="font-[family-name:var(--font-syne)] text-base font-semibold text-foreground transition-opacity group-hover:opacity-60"
+          className="font-[family-name:var(--font-syne)] text-lg font-semibold text-foreground transition-opacity group-hover:opacity-60"
         >
           {post.title}
         </Link>
-        <p className="text-sm text-foreground/40 leading-relaxed">{post.description}</p>
+        <p className="text-base text-foreground/40 leading-relaxed">{post.description}</p>
         {post.tags && post.tags.length > 0 && (
           <ul className="flex flex-wrap gap-1.5 pt-1">
             {post.tags.map((tag) => (

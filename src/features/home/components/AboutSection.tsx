@@ -10,7 +10,7 @@ export function AboutSection({ bio, avatarUrl }: AboutSectionProps) {
   return (
     <Section id="about">
       <AnimateIn>
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/30">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-foreground/30">
           — Acerca
         </p>
       </AnimateIn>

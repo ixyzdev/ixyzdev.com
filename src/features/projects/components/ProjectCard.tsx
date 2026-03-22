@@ -18,13 +18,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="flex items-center gap-3">
             <Link
               href={`/projects/${project.slug}`}
-              className="font-[family-name:var(--font-syne)] text-lg font-bold text-foreground transition-opacity duration-300 group-hover:opacity-70"
+              className="font-[family-name:var(--font-syne)] text-xl font-bold text-foreground transition-opacity duration-300 group-hover:opacity-70"
             >
               {project.title}
             </Link>
             <span className="font-mono text-xs text-foreground/20">{project.year}</span>
           </div>
-          <p className="text-sm text-foreground/50 leading-relaxed">{project.description}</p>
+          <p className="text-base text-foreground/50 leading-relaxed">{project.description}</p>
         </div>
         <div className="shrink-0 flex flex-col items-end gap-2">
           {project.liveUrl && (

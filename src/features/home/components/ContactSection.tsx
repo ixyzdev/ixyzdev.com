@@ -21,7 +21,7 @@ export function ContactSection() {
   return (
     <Section id="contact">
       <AnimateIn>
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/25">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-foreground/25">
           — Contacto
         </p>
       </AnimateIn>
@@ -34,7 +34,7 @@ export function ContactSection() {
         </AnimateIn>
 
         <AnimateIn delay={0.2}>
-          <p className="text-sm leading-relaxed text-foreground/40">
+          <p className="text-base leading-relaxed text-foreground/40">
             ¿Tienes un proyecto en mente? Escríbeme, siempre estoy abierto a nuevas ideas.
           </p>
         </AnimateIn>
@@ -47,7 +47,7 @@ export function ContactSection() {
           ) : (
             <form onSubmit={handleSubmit} className="w-full space-y-4 text-left">
               <div className="space-y-1.5">
-                <label htmlFor="email" className="font-mono text-[10px] uppercase tracking-[0.15em] text-foreground/30">
+                <label htmlFor="email" className="font-mono text-xs uppercase tracking-[0.15em] text-foreground/30">
                   Tu correo
                 </label>
                 <input
@@ -56,12 +56,12 @@ export function ContactSection() {
                   type="email"
                   required
                   placeholder="tu@correo.com"
-                  className="w-full rounded-lg border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-foreground/20 outline-none focus:border-foreground/25 transition-colors"
+                  className="w-full rounded-lg border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-base text-foreground placeholder:text-foreground/20 outline-none focus:border-foreground/25 transition-colors"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="message" className="font-mono text-[10px] uppercase tracking-[0.15em] text-foreground/30">
+                <label htmlFor="message" className="font-mono text-xs uppercase tracking-[0.15em] text-foreground/30">
                   Mensaje
                 </label>
                 <textarea
@@ -70,7 +70,7 @@ export function ContactSection() {
                   required
                   rows={5}
                   placeholder="Cuéntame sobre tu proyecto..."
-                  className="w-full resize-none rounded-lg border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-foreground/20 outline-none focus:border-foreground/25 transition-colors"
+                  className="w-full resize-none rounded-lg border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-base text-foreground placeholder:text-foreground/20 outline-none focus:border-foreground/25 transition-colors"
                 />
               </div>
 

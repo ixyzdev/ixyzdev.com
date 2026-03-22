@@ -24,11 +24,11 @@ export function StackCard({ stack: { name, description, technologies, Icon } }: 
       <div className="space-y-2">
         <div className="flex items-center gap-2.5">
           <Icon size={14} strokeWidth={1.5} className="shrink-0 text-foreground/40" />
-          <h3 className="font-[family-name:var(--font-syne)] text-base font-semibold text-foreground/90 leading-none">
+          <h3 className="font-[family-name:var(--font-syne)] text-lg font-semibold text-foreground/90 leading-none">
             {name}
           </h3>
         </div>
-        <p className="font-mono text-[10px] leading-relaxed text-foreground/30">
+        <p className="font-mono text-xs leading-relaxed text-foreground/30">
           {description}
         </p>
       </div>
@@ -40,10 +40,10 @@ export function StackCard({ stack: { name, description, technologies, Icon } }: 
       <ul className="space-y-2.5">
         {technologies.map(({ name: tech, role }) => (
           <li key={tech} className="flex items-baseline justify-between gap-4">
-            <span className="font-mono text-xs font-medium text-foreground/70 group-hover:text-foreground/85 transition-colors shrink-0">
+            <span className="font-mono text-sm font-medium text-foreground/70 group-hover:text-foreground/85 transition-colors shrink-0">
               {tech}
             </span>
-            <span className="font-mono text-[10px] text-foreground/25 text-right">
+            <span className="font-mono text-xs text-foreground/25 text-right">
               {role}
             </span>
           </li>
