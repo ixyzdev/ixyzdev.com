@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ixyzdev.com
 
-## Getting Started
+Portfolio personal de **Kevin Díaz Cantillano** — Ingeniero Civil Informático.
 
-First, run the development server:
+Diseñado con un enfoque editorial minimalista: tipografía prominente, paleta monocromática y animaciones sutiles al hacer scroll. Construido con las mismas tecnologías que usa día a día.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Stack
+
+| Capa | Tecnología |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19 + Tailwind CSS v4 |
+| Lenguaje | TypeScript |
+| Fuente display | Cormorant Garamond |
+| Fuente mono | Geist Mono |
+| Animaciones | Framer Motion |
+| Blog | MDX via `next-mdx-remote` |
+| Iconos | Lucide React |
+| Tema | next-themes (dark por defecto) |
+| Compilador | React Compiler (`reactCompiler: true`) |
+
+---
+
+## Estructura
+
+```
+src/
+├── app/                  # Rutas Next.js (capas delgadas)
+├── features/
+│   ├── home/
+│   │   ├── views/        # HomeView — datos + composición
+│   │   └── components/   # HeroSection, AboutSection, StackSection...
+│   ├── blog/             # BlogListView, PostBody, lib/posts.ts
+│   └── projects/         # ProjectCard, página de detalle
+├── components/
+│   ├── layout/           # Navbar, Footer, Section
+│   ├── ui/               # AnimateIn, Badge, Button, ThemeToggle
+│   └── providers/        # ThemeProvider
+├── lib/                  # encode-email, utilidades
+├── styles/               # globals.css — paleta y variables CSS
+└── types/                # Project, SocialLink, etc.
+
+content/
+└── posts/                # Artículos del blog en formato MDX
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Desarrollo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev       # http://localhost:3000
+npm run build     # Build de producción
+npm run lint      # ESLint
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Agregar contenido
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Nueva entrada de blog** — crear un archivo `.mdx` en `content/posts/`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```mdx
+---
+title: 'Título del artículo'
+date: '2025-01-01'
+summary: 'Descripción breve.'
+---
 
-## Deploy on Vercel
+Contenido en Markdown...
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Foto de perfil** — colocar la imagen en `public/images/foto.jpg` y descomentar la línea en `src/features/home/views/HomeView.tsx`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```tsx
+// avatarUrl="/images/foto.jpg"
+```
+
+---
+
+## Secciones
+
+| # | Sección | Anchor |
+|---|---|---|
+| 1 | Hero | `#hero` |
+| 2 | Acerca | `#about` |
+| 3 | Stack | `#stack` |
+| 4 | Experiencia | `#experience` |
+| 5 | Blog | `#blog` |
+| 6 | Contacto | `#contact` |
+
+---
+
+## Licencia
+
+MIT — siéntete libre de usar este proyecto como base para tu propio portfolio.
