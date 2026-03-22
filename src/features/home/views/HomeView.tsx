@@ -7,7 +7,6 @@ import { ProjectsSection } from '@/features/home/components/ProjectsSection'
 import { BlogSection } from '@/features/home/components/BlogSection'
 import { ContactSection } from '@/features/home/components/ContactSection'
 import { getAllPostsMeta } from '@/features/blog/lib/posts'
-import { encodeEmail } from '@/lib/encode-email'
 import type { TechStack } from '@/features/home/components/StackCard'
 
 // --- Personal data ---
@@ -141,10 +140,7 @@ export async function HomeView() {
       <StackSection stacks={techStacks} />
       <ProjectsSection projects={projects} title="Experiencia destacada" showAll />
       <BlogSection posts={recentPosts} />
-      <ContactSection
-        encodedEmail={encodeEmail('ixzy.dev@gmail.com')}
-        socialLinks={socialLinks}
-      />
+      <ContactSection />
     </>
   )
 }

@@ -26,12 +26,27 @@ export function Navbar({ items = defaultItems }: NavbarProps) {
   const pathname = usePathname()
   const router = useRouter()
 
+  function scrollToId(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   function handleHome() {
     if (pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       router.push('/')
     }
+  }
+
+  function handleNavClick(e: React.MouseEvent, href: string) {
+    const hash = href.startsWith('/#') ? href.slice(2) : null
+    if (!hash) return
+
+    if (pathname === '/') {
+      e.preventDefault()
+      scrollToId(hash)
+    }
+    // si estamos en otra ruta, deja que Next.js navegue a /#hash normalmente
   }
 
   return (
@@ -50,6 +65,7 @@ export function Navbar({ items = defaultItems }: NavbarProps) {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-sm text-foreground/40 hover:text-foreground transition-colors"
                 >
                   {item.label}
