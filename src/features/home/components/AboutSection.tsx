@@ -1,55 +1,66 @@
 import { Section } from '@/components/layout/Section'
-import { Badge } from '@/components/ui'
 import { AnimateIn } from '@/components/ui/AnimateIn'
+import { StackCard } from './StackCard'
+import type { StackCategory } from './StackCard'
 
 interface AboutSectionProps {
   bio: string
   avatarUrl?: string
-  skills?: string[]
+  stackCategories?: StackCategory[]
 }
 
-export function AboutSection({ bio, avatarUrl, skills = [] }: AboutSectionProps) {
+export function AboutSection({
+  bio,
+  avatarUrl,
+  stackCategories = [],
+}: AboutSectionProps) {
   return (
     <Section id="about">
-      <div className="grid gap-16 md:grid-cols-[1fr_280px]">
-        <div className="space-y-8">
-          <AnimateIn>
-            <p className="font-mono text-xs text-foreground/30 tracking-widest uppercase">
-              — Acerca
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.1}>
-            <p className="font-[family-name:var(--font-syne)] text-2xl font-medium leading-relaxed md:text-3xl">
-              {bio}
-            </p>
-          </AnimateIn>
-          {skills.length > 0 && (
-            <AnimateIn delay={0.2}>
-              <div className="space-y-3">
-                <p className="font-mono text-xs text-foreground/25 uppercase tracking-widest">
-                  Stack
-                </p>
-                <ul className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <li key={skill}>
-                      <Badge variant="muted">{skill}</Badge>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+      <div className="space-y-16">
+
+        {/* Bio */}
+        <div className="grid gap-12 md:grid-cols-[1fr_220px]">
+          <div className="space-y-6">
+            <AnimateIn>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/30">
+                — Acerca
+              </p>
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              <p className="font-[family-name:var(--font-syne)] text-2xl font-medium leading-relaxed md:text-3xl">
+                {bio}
+              </p>
+            </AnimateIn>
+          </div>
+          {avatarUrl && (
+            <AnimateIn delay={0.15} variant="fade" className="flex items-start justify-center md:justify-end">
+              <img
+                src={avatarUrl}
+                alt="Kevin Díaz"
+                className="size-44 rounded-2xl object-cover ring-1 ring-foreground/10"
+              />
             </AnimateIn>
           )}
         </div>
 
-        {avatarUrl && (
-          <AnimateIn delay={0.15} variant="fade" className="flex items-start justify-center md:justify-end">
-            <img
-              src={avatarUrl}
-              alt="Kevin Díaz"
-              className="size-48 rounded-2xl object-cover ring-1 ring-foreground/10"
-            />
-          </AnimateIn>
+        {/* Stack categorizado */}
+        {stackCategories.length > 0 && (
+          <div className="space-y-4">
+            <AnimateIn>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/25">
+                — Stack
+              </p>
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {stackCategories.map((category) => (
+                  <StackCard key={category.name} category={category} />
+                ))}
+              </div>
+            </AnimateIn>
+          </div>
         )}
+
       </div>
     </Section>
   )

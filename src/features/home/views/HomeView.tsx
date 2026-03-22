@@ -1,4 +1,5 @@
 import type { Project, SocialLink } from '@/types'
+import { Monitor, Server, Database, Layers, Workflow, GitBranch } from 'lucide-react'
 import { HeroSection } from '@/features/home/components/HeroSection'
 import { AboutSection } from '@/features/home/components/AboutSection'
 import { ProjectsSection } from '@/features/home/components/ProjectsSection'
@@ -6,6 +7,7 @@ import { BlogSection } from '@/features/home/components/BlogSection'
 import { ContactSection } from '@/features/home/components/ContactSection'
 import { getAllPostsMeta } from '@/features/blog/lib/posts'
 import { encodeEmail } from '@/lib/encode-email'
+import type { StackCategory } from '@/features/home/components/StackCard'
 
 // --- Personal data ---
 
@@ -50,6 +52,39 @@ const projects: Project[] = [
   },
 ]
 
+const stackCategories: StackCategory[] = [
+  {
+    name: 'Frontend',
+    Icon: Monitor,
+    technologies: ['Next.js', 'Astro', 'SvelteKit', 'React', 'TypeScript', 'Tailwind CSS'],
+  },
+  {
+    name: 'Backend',
+    Icon: Server,
+    technologies: ['NestJS', 'Node.js', 'Spring Boot', 'Django', 'GraphQL'],
+  },
+  {
+    name: 'Base de datos',
+    Icon: Database,
+    technologies: ['PostgreSQL', 'MongoDB', 'Prisma'],
+  },
+  {
+    name: 'DevOps',
+    Icon: Layers,
+    technologies: ['Docker', 'Kubernetes', 'GitHub Actions', 'Linux'],
+  },
+  {
+    name: 'Arquitectura',
+    Icon: Workflow,
+    technologies: ['DDD', 'Hexagonal', 'CQRS', 'gRPC', 'Kafka'],
+  },
+  {
+    name: 'Control de versiones',
+    Icon: GitBranch,
+    technologies: ['Git', 'GitHub', 'GitOps', 'CI/CD'],
+  },
+]
+
 // --- End personal data ---
 
 export async function HomeView() {
@@ -66,24 +101,7 @@ export async function HomeView() {
       />
       <AboutSection
         bio="Egresado de Ingeniería Civil Informática en la Universidad de Valparaíso. Me especializo en arquitectura de software (DDD, hexagonal), automatización de flujos CI/CD y tecnologías web como Next.js, NestJS y GraphQL. He liderado proyectos educativos y clínicos en FabLab UV, combinando visión técnica, estrategia y ejecución integral. Inglés B2 · Español nativo."
-        skills={[
-          'Next.js',
-          'Astro',
-          'SvelteKit',
-          'NestJS',
-          'Node.js',
-          'Spring Boot',
-          'Django',
-          'GraphQL',
-          'TypeScript',
-          'PostgreSQL',
-          'MongoDB',
-          'Docker',
-          'Kubernetes',
-          'GitHub Actions',
-          'DDD',
-          'Linux',
-        ]}
+        stackCategories={stackCategories}
       />
       <ProjectsSection projects={projects} title="Experiencia destacada" showAll />
       <BlogSection posts={recentPosts} />
