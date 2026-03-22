@@ -85,34 +85,35 @@ export function Navbar({ items = defaultItems }: NavbarProps) {
                 <Link
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="flex items-center gap-1 text-sm text-foreground/40 hover:text-foreground transition-colors"
+                  className="flex items-center gap-1.5 text-sm text-foreground/40 hover:text-foreground transition-colors"
                 >
                   {item.label}
                   {item.children && (
                     <ChevronDown
                       size={11}
                       strokeWidth={2}
-                      className={`transition-transform duration-200 ${open === item.href ? 'rotate-180' : ''}`}
+                      className={`mt-px transition-transform duration-200 ${open === item.href ? 'rotate-180' : ''}`}
                     />
                   )}
                 </Link>
 
                 {/* Dropdown */}
                 {item.children && open === item.href && (
-                  <div className="absolute top-full left-0 pt-3">
-                    <div className="rounded-lg border border-foreground/8 bg-background/98 backdrop-blur-md overflow-hidden">
+                  <div className="absolute top-full left-0 pt-4">
+                    <ul className="flex flex-col gap-px">
                       {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => setOpen(null)}
-                          className="flex items-center gap-2 whitespace-nowrap px-4 py-2.5 font-mono text-[11px] text-foreground/40 hover:text-foreground transition-colors"
-                        >
-                          <span className="text-foreground/20">↗</span>
-                          {child.label}
-                        </Link>
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            onClick={() => setOpen(null)}
+                            className="group flex items-center gap-2 whitespace-nowrap text-sm text-foreground/35 hover:text-foreground transition-colors"
+                          >
+                            <span className="h-px w-3 shrink-0 bg-foreground/20 transition-all group-hover:w-5 group-hover:bg-foreground/50" />
+                            {child.label}
+                          </Link>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 )}
               </li>
