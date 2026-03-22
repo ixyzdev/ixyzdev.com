@@ -99,21 +99,19 @@ export function Navbar({ items = defaultItems }: NavbarProps) {
 
                 {/* Dropdown */}
                 {item.children && open === item.href && (
-                  <div className="absolute top-full left-0 pt-4">
-                    <ul className="flex flex-col gap-px">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
+                    <div className="overflow-hidden rounded-lg border border-foreground/10 bg-background shadow-md shadow-black/20">
                       {item.children.map((child) => (
-                        <li key={child.href}>
-                          <Link
-                            href={child.href}
-                            onClick={() => setOpen(null)}
-                            className="group flex items-center gap-2 whitespace-nowrap text-sm text-foreground/35 hover:text-foreground transition-colors"
-                          >
-                            <span className="h-px w-3 shrink-0 bg-foreground/20 transition-all group-hover:w-5 group-hover:bg-foreground/50" />
-                            {child.label}
-                          </Link>
-                        </li>
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setOpen(null)}
+                          className="block whitespace-nowrap px-5 py-2.5 text-sm text-foreground/60 hover:bg-foreground/5 hover:text-foreground transition-colors"
+                        >
+                          {child.label}
+                        </Link>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 )}
               </li>
