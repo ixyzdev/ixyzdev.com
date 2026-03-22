@@ -18,7 +18,7 @@ export function ObfuscatedEmail({ encoded, className }: ObfuscatedEmailProps) {
   const [email, setEmail] = useState<string | null>(null)
 
   useEffect(() => {
-    setEmail(Buffer.from(encoded, 'base64').toString('utf-8'))
+    setEmail(atob(encoded))
   }, [encoded])
 
   if (!email) {
