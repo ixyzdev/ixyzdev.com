@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
 import { SquareCode } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
@@ -22,11 +23,22 @@ const defaultItems: NavItem[] = [
 ]
 
 export function Navbar({ items = defaultItems }: NavbarProps) {
+  const pathname = usePathname()
+  const router = useRouter()
+
+  function handleHome() {
+    if (pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      router.push('/')
+    }
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/5 bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={handleHome}
           className="flex items-center gap-2 font-[family-name:var(--font-syne)] text-base font-bold tracking-tight text-foreground hover:opacity-60 transition-opacity"
         >
           <SquareCode size={16} strokeWidth={1.5} className="text-foreground/50" />
